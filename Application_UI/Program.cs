@@ -1,3 +1,4 @@
+using Application_UI.AutoMapper;
 using Application_UI.Utility;
 using BusinessLogic.BaseRepository;
 using BusinessLogic.ModelRepositories.Task;
@@ -46,6 +47,7 @@ builder.Services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>
 IdentityHelper.CreateRolesIfNotExistAsync(builder.Services).Wait();
 #endregion
 
+builder.Services.AddAutoMapper(typeof(UserProfile));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -73,6 +75,11 @@ app.MapAreaControllerRoute(
               name: "Identity",
               areaName: "Identity",
               pattern: "Identity/{controller=Register}/{action=Index}/{id?}"
+              );
+app.MapAreaControllerRoute(
+              name: "User",
+              areaName: "User",
+              pattern: "User/{controller=ManagingTasks}/{action=Index}/{id?}"
               );
 
 app.MapControllerRoute(

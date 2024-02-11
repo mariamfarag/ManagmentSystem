@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
@@ -24,9 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Identity\Views\shared\Assets\" />
-    <Folder Include="Areas\User\" />
+    <Folder Include="Areas\TeamLeader\Controllers\" />
+    <Folder Include="Areas\TeamLeader\Views\" />
   </ItemGroup>
 
   <ItemGroup>

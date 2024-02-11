@@ -1,0 +1,78 @@
+﻿@using DataAccess.Enums
+@model BusinessLogic.ViewModels.TaskViewModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Create Task</h3>
+
+    <div class="container">
+        <form action="@Url.Action("Create", "ManagingTasks")" method="post" enctype="multipart/form-data">
+            <label for="Title">Title</label>
+            <input type="text" name="Title" placeholder="">
+
+            <label for="PriorityLevel">Priority Level</label>
+            <input type="text" name="PriorityLevel" placeholder="">
+
+            <label for="country">Country</label>
+            @Html.DropDownListFor(x => x.StatusTask, Html.GetEnumSelectList<Status>())
+
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+
+            <label for="Description">Description</label>
+            <textarea id="subject" name="Description" placeholder="Write something.." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>
