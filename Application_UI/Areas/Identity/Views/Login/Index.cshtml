@@ -1,0 +1,49 @@
+﻿@model BusinessLogic.ViewModels.UserViewModel
+@{
+    ViewData["Title"] = "Index-Login";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/css/IdentityCssLogin.css" rel="stylesheet" />
+   </head>
+<body>
+
+   @*  @using (Html.BeginForm("loginmethoud", "Login", FormMethod.Post, new { id = "loginForm", @class = "form", enctype = "multipart/form-data" }))
+    { *@
+        <div class="wrapper">
+            <div class="title">
+                Login Form
+            </div>
+            <form action="@Url.Action("loginmethoud", "Login")" method="post" enctype="multipart/form-data">
+                <div class="field">
+                <input name="Email" required>
+                <label type="text" asp-for="Email">Email Address</label>
+                </div>
+                <div class="field">
+                    <input type="password" name="PasswordHash" required>
+                <label for="passwordInput" asp-for="PasswordHash">Password</label>
+                </div>
+                <div class="content">
+                    <div class="checkbox">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <div class="pass-link">
+                        <a href="#">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="signup-link">
+                Not a member? <a href="@Url.Action("Index", "Register", new { Area = "Identity" })">Signup now</a>
+                </div>
+            </form>
+        </div>
+   @*  } *@
+</body>
+</html>
+

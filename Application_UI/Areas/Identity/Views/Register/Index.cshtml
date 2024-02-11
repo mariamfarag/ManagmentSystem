@@ -1,0 +1,56 @@
+﻿@model BusinessLogic.ViewModels.UserViewModel 
+@{
+    ViewData["Title"] = "Index-Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="~/css/IdentityCssLogin.css" rel="stylesheet" />
+</head>
+<body>
+
+    @* @using (Html.BeginForm("loginmethoud", "Login", FormMethod.Post, new { id = "loginForm", @class = "", enctype = "multipart/form-data" }))
+    { *@
+        <div class="wrapper">
+            <div class="title">
+                Register Form
+            </div>
+        <form action="@Url.Action("RegisterNewUser", "Register")" method="post" enctype="multipart/form-data">
+                <div class="field">
+                    <input name="FirstName" required>
+                    <label type="text" asp-for="FirstName"> First Name</label>
+                </div>
+                <div class="field">
+                    <input name="LastName" required>
+                    <label type="text" asp-for="LastName">Last Name</label>
+                </div>
+                <div class="field">
+                    <input name="Email" required>
+                    <label type="text" asp-for="Email">Email Address</label>
+                </div>
+                <div class="field">
+                <input type="password" name="PasswordHash" required>
+                    <label for="passwordInput" asp-for="PasswordHash">Password</label>
+                </div>
+                <div class="content">
+                    <div class="checkbox">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <div class="pass-link">
+                        <a href="#">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Register">
+                </div>
+                <div class="signup-link">
+                Not a member? <a href="@Url.Action("Index", "Login", new { Area = "Identity" })">Signin now</a>
+                </div>
+            </form>
+        </div>
+    @* } *@
+</body>
+</html>
+
