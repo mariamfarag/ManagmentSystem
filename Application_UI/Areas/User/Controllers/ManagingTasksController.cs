@@ -30,14 +30,21 @@ namespace Application_UI.Areas.User.Controllers
         [HttpPost]
         public IActionResult Create(TaskViewModel task)
         {
-            //string userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
+            string userId1 = (string)TempData["uUserID"];
             if (ModelState.IsValid)
             {
+                if (!string.IsNullOrEmpty(userId1))
+            {
+                    string userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
+                }
                 Tasks taskmapper = _map.Map<Tasks>(task);
+                taskmapper.user.Id = userId1;
                 _task.Add(taskmapper);
                 _task.Save();
                 return RedirectToAction("Index");
             }
+          
+           
             return View(task);
         }
     }

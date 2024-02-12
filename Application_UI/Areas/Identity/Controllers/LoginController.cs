@@ -146,6 +146,7 @@ namespace Application_UI.Areas.Identity.Controllers
                     UserName = AddEmail,
                     EmailConfirmed = true,
                     PhoneNumber = "root",
+                    
 
                 };
                 await _userManager.CreateAsync(user, "123456789aA@");

@@ -26,15 +26,17 @@ namespace Application_UI.Areas.Identity.Controllers
         {
             try
             {
-                returnUrl = returnUrl ?? Url.Content("~/User/Home/Index");
+                returnUrl = returnUrl ?? Url.Content("~/User/ManagingTasks/Index");
                 await addAdmin();
                 if (ModelState.IsValid)
                 {
-                    var user = new Users { UserName = aspNetUsers.Email, Email = aspNetUsers.Email, EmailConfirmed = true, UserType = 2 };
+                    var user = new Users { FirstName = aspNetUsers.FirstName,LastName = aspNetUsers.LastName,PasswordHash=aspNetUsers.PasswordHash,UserName = aspNetUsers.Email, Email = aspNetUsers.Email, EmailConfirmed = true, UserType = 2 };
                     var result = await _userManager.CreateAsync(user, aspNetUsers.PasswordHash);
                     if (result.Succeeded)
                     {
                         aspNetUsers.Id = user.Id.ToString();
+                        var uUserID = user.Id;
+                        TempData["uUserID"] = uUserID;
                         return LocalRedirect(returnUrl);
                     }
                     else

@@ -21,7 +21,12 @@ builder.Services.AddDbContext<ManagementSystemDBContext>(options =>
     options.UseSqlServer(connectionString);
     options.EnableSensitiveDataLogging();
 });
-
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    // Make the session cookie essential
+    options.Cookie.IsEssential = true;
+});
 //add identity
 builder.Services.AddIdentity<Users, IdentityRole>(
      opts =>
@@ -39,6 +44,7 @@ builder.Services.AddScoped<SignInManager<Users>, SignInManager<Users>>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 
+builder.Services.AddSession();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddHttpContextAccessor();
 
@@ -60,6 +66,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 
 app.UseRouting();
 
