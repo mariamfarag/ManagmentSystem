@@ -1,6 +1,7 @@
 ﻿@using DataAccess.Enums
 @model IEnumerable<BusinessLogic.ViewModels.TaskViewModel>
 @{
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-    <div>
-        <a class="btn btn-primary" href="@Url.Action("Create", "ManagingTasks", new { Area = "User" })">Create Task</a>
-    </div>
+    <div class="container">
+        <br/>
+        <a class="btn btn-primary" href="@Url.Action("Create", "ManagingTasks", new { Area = "User" })" style="padding: 12px;box-shadow: 4px 4px 8px 2px cadetblue;">Create Task</a>
+    
 <div class="row">
     @foreach (var item in Model)
     {
@@ -27,6 +29,7 @@
             <div class="card-title"> @Enum.GetName(Status.Done)</div>
         </div>
     }
-</div>
+        </div>
+    </div>
 </body>
 </html>

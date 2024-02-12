@@ -22,23 +22,40 @@ namespace DataAccess.Migrations
                 name: "taskId",
                 table: "AspNetUsers");
 
-            migrationBuilder.DropColumn(
+            migrationBuilder.RenameColumn(
                 name: "tasksId",
-                table: "AspNetUsers");
+                table: "AspNetUsers",
+                newName: "UserType");
 
-            migrationBuilder.AddColumn<int>(
-                name: "userId",
+            migrationBuilder.AlterColumn<string>(
+                name: "Title",
                 table: "task",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "PriorityLevel",
+                table: "task",
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Description",
+                table: "task",
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
 
             migrationBuilder.AddColumn<string>(
                 name: "userId",
                 table: "task",
                 type: "nvarchar(450)",
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_task_userId",
@@ -50,8 +67,7 @@ namespace DataAccess.Migrations
                 table: "task",
                 column: "userId",
                 principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                principalColumn: "Id");
         }
 
         /// <inheritdoc />
@@ -69,19 +85,43 @@ namespace DataAccess.Migrations
                 name: "userId",
                 table: "task");
 
-            migrationBuilder.DropColumn(
-                name: "userId",
-                table: "task");
+            migrationBuilder.RenameColumn(
+                name: "UserType",
+                table: "AspNetUsers",
+                newName: "tasksId");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Title",
+                table: "task",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "",
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "PriorityLevel",
+                table: "task",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "",
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Description",
+                table: "task",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "",
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
 
             migrationBuilder.AddColumn<int>(
                 name: "taskId",
-                table: "AspNetUsers",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<int>(
-                name: "tasksId",
                 table: "AspNetUsers",
                 type: "int",
                 nullable: false,

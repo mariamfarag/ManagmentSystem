@@ -29,7 +29,7 @@ namespace Application_UI.Areas.User.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<TaskViewModel> tasksList = _map.Map<IEnumerable<TaskViewModel>>(_task.GetByAllQuery());
+            IEnumerable<TaskViewModel> tasksList = _map.Map<IEnumerable<TaskViewModel>>(_task.GetByAll());
             return View(tasksList);
         }
 
@@ -55,7 +55,7 @@ namespace Application_UI.Areas.User.Controllers
                 }
                 Tasks taskmapper = _map.Map<Tasks>(task);
 
-                taskmapper.userId = userId1;
+               // taskmapper.user = usr;
                 _task.Add(taskmapper);
                 _task.Save();
                 return RedirectToAction("Index");

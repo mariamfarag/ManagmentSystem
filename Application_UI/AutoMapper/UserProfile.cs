@@ -14,7 +14,7 @@ namespace Application_UI.AutoMapper
                 .ForMember(destination => destination.Date, h => h.MapFrom(source => source.Date))
                 .ForMember(destination => destination.Description, h => h.MapFrom(source => source.Description))
                 .ForMember(destination => destination.Title, h => h.MapFrom(source => source.Title))
-                .ForMember(destination => destination.userId, h => h.MapFrom(source => source.userId))
+                //.ForMember(destination => destination.userId, h => h.MapFrom(source => source.userId))
                 .ReverseMap(); ;
         }
     }

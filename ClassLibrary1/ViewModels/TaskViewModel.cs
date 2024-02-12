@@ -15,7 +15,7 @@ namespace BusinessLogic.ViewModels
         public string? Description { get; set; }
         public string? PriorityLevel { get; set; }
         public Status StatusTask { get; set; }
-        public int userId { get; set; }
+        //public int userId { get; set; }
         //public Users? user { get; set; }
     }
 }
