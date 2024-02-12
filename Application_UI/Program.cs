@@ -7,6 +7,7 @@ using DataAccess;
 using DataAccess.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,9 @@ builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 builder.Services.AddSession();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.ConfigureApplicationCookie(options => {
+    options.LoginPath = builder.Configuration.GetSection("AppSettings")["LoginPath"];
+});
 
 #region Repositories
 builder.Services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));

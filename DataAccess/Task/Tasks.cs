@@ -16,7 +16,7 @@ namespace DataAccess.Task
         public string? Description { get; set; }
         public string? PriorityLevel { get; set; }
         public Status StatusTask { get; set; }
-        //public Guid userId { get; set; }
-        public Users? user { get; set; }
+        public Guid userId { get; set; }
+        public virtual Users? user { get; set; }
     }
 }

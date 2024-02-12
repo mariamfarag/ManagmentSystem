@@ -34,21 +34,21 @@ namespace DataAccess.Migrations
                 defaultValue: 0);
 
             migrationBuilder.AddColumn<string>(
-                name: "userId1",
+                name: "userId",
                 table: "task",
                 type: "nvarchar(450)",
                 nullable: false,
                 defaultValue: "");
 
             migrationBuilder.CreateIndex(
-                name: "IX_task_userId1",
+                name: "IX_task_userId",
                 table: "task",
-                column: "userId1");
+                column: "userId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_task_AspNetUsers_userId1",
+                name: "FK_task_AspNetUsers_userId",
                 table: "task",
-                column: "userId1",
+                column: "userId",
                 principalTable: "AspNetUsers",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
@@ -58,11 +58,11 @@ namespace DataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_task_AspNetUsers_userId1",
+                name: "FK_task_AspNetUsers_userId",
                 table: "task");
 
             migrationBuilder.DropIndex(
-                name: "IX_task_userId1",
+                name: "IX_task_userId",
                 table: "task");
 
             migrationBuilder.DropColumn(
@@ -70,7 +70,7 @@ namespace DataAccess.Migrations
                 table: "task");
 
             migrationBuilder.DropColumn(
-                name: "userId1",
+                name: "userId",
                 table: "task");
 
             migrationBuilder.AddColumn<int>(

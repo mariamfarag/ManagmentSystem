@@ -47,32 +47,35 @@
     </style>
 </head>
 <body>
-
-    <h3>Create Task</h3>
-
     <div class="container">
-        <form action="@Url.Action("Create", "ManagingTasks")" method="post" enctype="multipart/form-data">
-            <label for="Title">Title</label>
-            <input type="text" name="Title" placeholder="">
+        <h3>Create Task</h3>
 
-            <label for="PriorityLevel">Priority Level</label>
-            <input type="text" name="PriorityLevel" placeholder="">
+        <div class="container">
+            <form action="@Url.Action("Create", "ManagingTasks")" method="post" enctype="multipart/form-data">
+                <label for="Title">Title</label>
+                <input type="text" name="Title" placeholder="">
 
-            <label for="country">Country</label>
-            @Html.DropDownListFor(x => x.StatusTask, Html.GetEnumSelectList<Status>())
+                <label for="PriorityLevel">Priority Level</label>
+                <input type="text" name="PriorityLevel" placeholder="">
 
-            <select id="country" name="country">
-                <option value="australia">Australia</option>
-                <option value="canada">Canada</option>
-                <option value="usa">USA</option>
-            </select>
+                <label for="country">Country</label>
+                @Html.DropDownListFor(x => x.StatusTask, Html.GetEnumSelectList<Status>())
 
-            <label for="Description">Description</label>
-            <textarea id="subject" name="Description" placeholder="Write something.." style="height:200px"></textarea>
+                <select id="country" name="country">
+                    <option value="australia">Australia</option>
+                    <option value="canada">Canada</option>
+                    <option value="usa">USA</option>
+                </select>
 
-            <input type="submit" value="Submit">
-        </form>
+                <label for="Description">Description</label>
+                <textarea id="subject" name="Description" placeholder="Write something.." style="height:200px"></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </div>
+
+ 
 
 </body>
 </html>

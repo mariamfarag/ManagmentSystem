@@ -51,13 +51,13 @@ namespace DataAccess.Migrations
                     b.Property<int>("userId")
                         .HasColumnType("int");
 
-                    b.Property<string>("userId1")
+                    b.Property<string>("userId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("userId1");
+                    b.HasIndex("userId");
 
                     b.ToTable("task");
                 });
@@ -272,7 +272,7 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("DataAccess.User.Users", "user")
                         .WithMany("tasks")
-                        .HasForeignKey("userId1")
+                        .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
